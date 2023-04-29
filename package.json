@@ -1,0 +1,19 @@
+{
+  "name": "ticket-booking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ash-5/ticket-booking.git"
+  },
+  "author": "Ashish Srivastav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ash-5/ticket-booking/issues"
+  },
+  "homepage": "https://github.com/Ash-5/ticket-booking#readme"
+}
