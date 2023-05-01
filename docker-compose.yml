@@ -1,0 +1,36 @@
+version: '3.5'
+services:
+  postgres:
+    image: postgres:14.5-alpine
+    container_name: movie-postgres
+    volumes:
+      - pgdata:/var/lib/postgresql2/data
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_USER=root
+      - POSTGRES_DB=movie
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - node-net
+  app:
+    container_name: movie
+    image: node:18-alpine
+    volumes:
+      - ./:/var/www
+    ports:
+      - ${HOST_PORT:-3000}:3000
+    working_dir: /var/www
+    command: sh setup.sh
+    env_file:
+      - .env
+    networks:
+      - node-net
+    depends_on:
+      - postgres
+networks:
+  node-net:
+    driver: bridge
+volumes:
+  pgdata:
+    driver: local
